@@ -12,4 +12,7 @@ int main(int argc, char *argv[])
 
         return -1;
     }
+
+    host = argv[1];
+    port = atoi(argv[2]);
 }
