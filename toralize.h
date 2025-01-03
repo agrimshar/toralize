@@ -12,6 +12,7 @@
 
 #define PROXY "127.0.0.1"
 #define PROXYPORT 9050
+#define USERNAME "toranon"
 
 typedef unsigned char int8;
 typedef unsigned short int int16;
@@ -22,7 +23,7 @@ struct proxy_request {
     int8 CD;
     int16 DSTPORT;
     int32 DSTIP;
-    int8 USERID[8];
+    unsigned char USERID[8];
 };
 typedef struct proxy_request ProxyRequest;
 
@@ -47,5 +48,11 @@ typedef struct proxy_response ProxyResponse;
                 +----+----+----+----+----+----+----+----+
  # of bytes:	   1    1      2              4
 */
+
+#define REQUESTSIZE sizeof(ProxyRequest)
+#define RESPONSESIZE sizeof(ProxyResponse)
+
+ProxyRequest *request(const char*, const int);
+int main(int, char**);
 
 #endif
